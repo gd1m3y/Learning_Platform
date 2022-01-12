@@ -1,12 +1,9 @@
 package com.psl.training.controller;
 
-import java.security.NoSuchAlgorithmException;
 import java.util.List;
-import java.util.Objects;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,70 +16,63 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
 import com.psl.training.exception.ApplicationException;
-import com.psl.training.model.User;
-import com.psl.training.model.UserLoginCredential;
-import com.psl.training.security.PassEncTech;
-import com.psl.training.service.UserService;
+import com.psl.training.model.Course;
+import com.psl.training.service.CourseService;
 
 @RestController
-@RequestMapping("/user")
-public class UserController {
+@RequestMapping("/course")
+public class CourseController {
 	@Autowired
-	private UserService service;
+	private CourseService service;
 
-	@PostMapping("/authenticate")
+	@PostMapping("/add")
 	@ResponseBody
-	public User authenticateUser(@RequestBody UserLoginCredential credentials) throws NoSuchAlgorithmException {
-		credentials.setPassword(PassEncTech.toHex(credentials.getPassword()));
-		return service.authenticateUser(credentials);
-	}
-
-	@PostMapping("/register")
-	public String addUser(@RequestBody User user) throws NoSuchAlgorithmException {
+	public String addCourse(@RequestBody Course course) {
 		try {
-			user.setPassword(PassEncTech.toHex(user.getPassword()));
-			service.addUser(user);
+			service.addCourse(course);
 		} catch (ApplicationException e) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
 		}
-		return "User Added Successfully";
+		return "Course Added Successfully";
 	}
 
 	@PutMapping("/update")
-	public String updateUser(@RequestBody User user) throws NoSuchAlgorithmException {
+	public String updateCourse(@RequestBody Course course) {
 		try {
-			if (Objects.nonNull(user.getPassword()) && !StringUtils.isEmpty(user.getPassword()))
-				user.setPassword(PassEncTech.toHex(user.getPassword()));
-			service.updateUser(user);
+			service.updateCourse(course);
 		} catch (ApplicationException e) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
 		}
-		return "User Updated Successfully";
+		return "Course Updated Successfully";
 	}
 
 	@DeleteMapping("/delete")
 	public String deleteUser(@RequestParam int id) {
 		try {
-			service.deleteUser(id);
+			service.deleteCourse(id);
 		} catch (ApplicationException e) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
 		}
-		return "User with id: " + id + " Deleted Successfully";
+		return "Course with id: " + id + " Deleted Successfully";
+
 	}
 
 	@GetMapping("/view")
 	@ResponseBody
-	public User getUser(@RequestParam int id) {
+	public Course getUser(@RequestParam int id) {
 		try {
-			return service.getUserById(id);
+			Course course = service.getCourseById(id);
+			return course;
 		} catch (ApplicationException e) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
 		}
+
 	}
 
 	@GetMapping("/viewAll")
 	@ResponseBody
-	public List<User> getAllUser() {
-		return service.getAllUser();
+	public List<Course> getAllCourse() {
+		return service.getAllCourse();
 	}
+
 }

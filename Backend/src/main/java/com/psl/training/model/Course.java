@@ -16,17 +16,15 @@ import lombok.ToString;
 @Entity
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @ToString
 
-public class User implements Serializable{ 
-	
+public class Course implements Serializable {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
-	private String email;
-	private String userName;
-	private String password;
-	
+	private String courseName;
+	private String courseContent;
 }
