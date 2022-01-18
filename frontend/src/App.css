@@ -1,0 +1,66 @@
+*{
+  overflow: hidden;
+  font-family: 'Poppins', sans-serif;
+}
+/* Add a black background color to the top navigation */
+.topnav {
+  background-color: #79018C;
+  overflow: hidden;
+  margin-bottom: 3px;
+  height: 10%;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+float: left;
+color: #f2f2f2;
+text-align: center;
+padding: 10px 12px;
+text-decoration: none;
+font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+background-color: #fff;
+color: black;
+}
+
+/* Add a color to the active/current link */
+/* .topnav a.active {
+background-color: #04AA6D;
+color: white;
+} */
+
+/* Right-aligned section inside the top navigation */
+.topnav-right {
+float: right;
+}
+
+.topnav ul{
+  margin-bottom: 0;
+}
+
+.bot{
+  position: fixed;
+  bottom: 10px;
+  left: 5px;
+}
+
+.chatbtnP{
+  /* border-style: none; */
+  border-color: #fff;
+  border-radius: 10px;
+  padding: 5px 10px;
+  background-color: #79018C;
+  color: #fff;
+}
+
+/* .chatbtnW{
+  border-style: none;
+  border-color: #fff;
+  border-radius: 10px;
+  padding: 5px 10px;
+  background-color: #fff;
+  color: black;
+} */

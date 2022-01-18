@@ -1,0 +1,103 @@
+*{
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+.myContainer{
+    /* background-color: #9A0680; */
+    background: linear-gradient(to bottom right, #9a0680 0%, #79018c 100%);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+
+
+/* .navbar{
+    overflow: hidden;
+} */
+
+.outer{
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    flex: 1 1 auto;
+    align-items: center;
+    /* background-color: black; */
+    height: 100%;
+    width: 100%;
+    padding: 30px;
+}
+
+.innerLeft{
+    /* background-color: green; */
+    float: left;
+    width: 50%;
+    height: 80%;
+    padding: 30px;
+}
+
+.innerRight{
+    /* background-color: red; */
+    position: relative;
+    float: right;
+    width: 50%;
+    display: flex;
+    padding: 50px;
+    height: 80%;
+    
+}
+
+.loginCard{
+    padding: 20px;
+    border-radius: 10px;
+    background-color:#fff;
+    width: 90%;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    height: 90%;
+}
+
+.formGroup{
+    display: flex;
+    flex-direction: column;
+}
+
+.myBtn{
+    background-color: #79018C;
+    border-color: #79018C;   
+    width: 100%;
+    
+}
+
+.myBtn a{
+    text-decoration: none;
+    color: #f2f2f2;
+    width: 100%;
+}
+
+.myBtn:hover{
+    background-color: #79018C;
+    border-color: #79018C;
+}
+
+.logPic{
+    width: 100%;
+    height: 100%;
+}
+
+.ptext{
+    color: #595260;
+    /* padding: 5px; */
+    font-size: 15px;
+}
+
+.forgot-p{
+    padding-top: 10px;
+    text-align: center;
+}
+
+.welcome{
+    margin-bottom: 0;
+}
