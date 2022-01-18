@@ -6,15 +6,14 @@ import registerPic from './register-pic.svg';
 import PopUp from './PopUp';
 import validator from 'validator';
 import axios from "axios";
-
-
+import { useNavigate } from 'react-router-dom';
 function Register() {
     const [isError, setIsError] = useState('');
     const [name, setName] = useState('');
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
-
+    const navigate = useNavigate();
     const [isPopUp, setIsPopUp] =useState(false);
 
     const onSignUp = (e) => {
@@ -22,20 +21,19 @@ function Register() {
         if (password !== confirmPassword) {
             setIsError("Confirm Password should match password");
             console.log(username);
-        }else if (!validator.isEmail(name)) {
+        }else if (!validator.isEmail(username)) {
             setIsError("Enter valid Email!");
-            console.log(name);
+            console.log(username);
 
         } else {
             setIsError('');
             const RegisterData = {
-                email: name,
-                userName: username,
+                email: username,
+                userName: name,
                 password: password,
                 
             }
-
-
+            console.log(RegisterData);
             axios.post('http://localhost:5000/user/register', RegisterData)
               .then(function (response) {
                 console.log(response);
@@ -46,6 +44,8 @@ function Register() {
 
 
             console.log(RegisterData);
+            setIsPopUp(true);
+            navigate('/login');
             setIsPopUp(true);
             
         }
@@ -75,14 +75,14 @@ function Register() {
 
                             <Form>
                                 <Form.Group className="mb-3" >
-                                    <Form.Label>Email</Form.Label>
-                                    <Form.Control type="text" placeholder="Enter Email ID" onChange={(e) => setName(e.target.value)}/>
+                                    <Form.Label>Name</Form.Label>
+                                    <Form.Control type="text" placeholder="Enter Name" onChange={(e) => setName(e.target.value)}/>
                                     <Form.Text className="text-muted">
                                     </Form.Text>
                                 </Form.Group>
                                 <Form.Group className="mb-3" controlId="formBasicEmail">
-                                    <Form.Label>Username</Form.Label>
-                                    <Form.Control type="textarea" placeholder="Enter Username" onChange={(e) => setUsername(e.target.value)}/>
+                                    <Form.Label>Email</Form.Label>
+                                    <Form.Control type="email" placeholder="Enter Email" onChange={(e) => setUsername(e.target.value)}/>
                                     <Form.Text className="text-muted">
                                     </Form.Text>
                                 </Form.Group>
@@ -105,7 +105,7 @@ function Register() {
                                 </div>
 
                             </Form>
-
+                        
 
                         </div>
                     </div>

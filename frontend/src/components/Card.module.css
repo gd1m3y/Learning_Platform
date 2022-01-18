@@ -1,0 +1,27 @@
+.card {
+    border-radius: 10px;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.26);
+    background-color: #fff;
+    padding: 20px;
+    margin: 20px; 
+    border-top: 4px solid #79018c;
+    width: 350px;
+    height: 220px;
+    flex: 28%;
+    cursor: pointer;
+}
+
+.card p{
+    color: hsl(225, 2%, 42%);
+    font-size: 17px;
+    
+}
+
+.icon {
+    height: 60px;
+    float: right;
+}
+
+.card h2 {
+    height: 45%;
+}

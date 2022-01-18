@@ -1,6 +1,6 @@
 *{
     margin: 0;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 .my-container{
     /* background-color: #9A0680; */
@@ -34,29 +34,35 @@
 .inner-left{
     /* background-color: green; */
     float: left;
-    width: 60%;
+    width: 50%;
     height: 80%;
-    padding: 30px;
+    padding: 10px;
 }
 
 .inner-right{
     /* background-color: red; */
     position: relative;
     float: right;
-    width: 40%;
+    width: 50%;
     display: flex;
-    padding: 50px;
+    padding: 10px;
     height: 80%;
     
 }
 
-.login-card__login{
+.login-card__Register{
     padding: 20px;
     border-radius: 10px;
     background-color:#fff;
     width: 90%;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-    height: 80%;
+    height: 94%;
+}
+
+.inner-left h1{
+    color: #fff;
+    text-align: center;
+    padding-bottom: 15px;
 }
 
 .form-group{
@@ -76,8 +82,8 @@
 }
 
 .log-pic{
-    width: 100%;
-    height: 100%;
+    /* width: 100%; */
+    height: 400px;
 }
 
 .p-text{
@@ -93,4 +99,13 @@
 
 .welcome{
     margin-bottom: 0;
+}
+
+/* .pic-box{
+    background-color: #fff;
+    border-radius: 50%;
+} */
+
+.error-msg{
+    color: red;
 }
